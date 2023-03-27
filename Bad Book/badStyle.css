@@ -1,0 +1,147 @@
+ body{
+        margin: 0px;
+        padding: 0px;
+        box-sizing: border-box;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+        background-color: gray;
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        
+    }
+    
+    .popUp {
+        display: none;
+    }
+    
+    .main{
+        aspect-ratio: 246/126;
+        width: 70%;
+        
+        position: absolute;
+        z-index: 1;
+        
+    }
+    
+    .main-h{
+        width: 100%;
+        height: 100%;
+        position: absolute;
+        perspective: 1800px;
+        
+        
+    }
+    
+    .main-h-card{
+        width: 50%;
+        height: 100%;
+        transform-style: preserve-3d;
+        position: absolute;
+        transform-origin: left;
+        transition: all 1s ease-in-out;
+        left:25%;
+        
+        
+    }
+    
+    .main-h-card:active {
+        
+    }
+    
+    .M1 {
+        z-index: 3;
+    }
+    
+    .M2 {
+        z-index: 0;
+    }
+    .M3 {
+        z-index: 0;
+    }
+    .M4{
+        z-index: 0;
+    }
+    
+    .main-h-cardD {
+        width: 100%;
+        height: 100%;
+        transform-style: preserve-3d;
+        position: absolute;
+        top: 0;
+    }
+    
+    .main-h-cardD>img{
+        width: 100%;
+        transform-style: preserve-3d;
+    }
+    
+    .A {
+        
+        
+    }
+    
+    .B{
+        transform: translateY(180deg);
+        backface-visibility: hidden;
+        
+        
+        
+    }
+    
+    
+    nav {
+        width: 20vw;
+        position: absolute;
+        bottom: -30px;
+        display: flex;
+        flex-direction: row;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    
+    .button {
+        width: 50%;
+        box-sizing: border-box;
+        height: 30px;
+        background-color: black;
+        color: lightgray;
+        font-size: 2rem;
+        z-index: 2;
+        border: 2px solid white;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        line-height: 26px;
+        font-weight: 600;
+        user-select: none;
+    }
+    
+    .button:active {
+        background-color: #262626;
+    }
+    
+    
+    .bg {
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
+        z-index: 0;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: black;
+        opacity: 0.9;
+    }
+    
+    .bg-holder{
+        width: 90%;
+        height: auto;
+        filter: blur(2px);
+    }
+    
+    .bg-holder>img{
+        width: 100%;
+    }

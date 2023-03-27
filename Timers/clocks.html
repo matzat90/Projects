@@ -1,0 +1,95 @@
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>Puste</title>
+        <meta name="description" content="puste">
+        <link rel="stylesheet" href="css.css">
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600&display=swap" rel="stylesheet">
+        <link href="https://fonts.googleapis.com/css2?family=Kelly+Slab&display=swap" rel="stylesheet">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+       
+        
+    </head>
+    <body>
+        <div class="deskHolder">
+            <div class="screen">
+                <div class="timer">
+                    <header>TIMER</header>
+                    <div class="timerReset">Reset</div>
+                        <div class="mainHolder">
+                            <div class="bg1"></div>
+                            <div class="bg2 grad1"></div>
+                                <div class="bg3 timerBg">
+                                    <span class="timerMin">00</span>:<span class="timerSec">00</span>
+                                </div>
+                            <div class="bg"></div>
+                        </div>
+                    
+                    <footer>Made by ZettArt</footer>
+                </div>
+                
+                <div class="countdown">
+                    <header>COUNTDOWN</header>
+                    <div class="countdownBar">
+                        <input type="number" class="inMin" min="0" max="60" value="00">min.<input type="number" class="inSec" min="0" max="60" value="00">sec.
+                    </div>
+                        <div class="mainHolder2">
+                            <div class="bg1"></div>
+                            <div class="bg2 grad2"></div>
+                                <div class="bg3 countdownPress">
+                                    <span class="timerMin time2Min">00</span>:<span class="timerSec time2Sec">00</span>
+                                </div>
+                            
+                            <div class="bg"></div>
+                        </div>
+                    <div class="countDownBarHolder">
+                                <div class="Progress"></div>
+                            </div>
+                    <footer>Made by ZettArt</footer>
+                </div>
+                <div class="interval">
+                    <header>INTERVAL</header>
+                    <div class="countdownBar">
+                        <div class="input-left">
+                            INTERVAL:
+                            <div class="int-hol">
+                             <input type="number" class="inIntMin" min="0" max="60" value="00">min.<input type="number" class="inIntSec" min="0" max="60" value="00">sec.
+                            </div>
+                        </div>
+                        <div class="input-right">
+                            BREAK:
+                            <div class="int-hol">
+                             <input type="number" class="inBrMin" min="0" max="60" value="00">min.<input type="number" class="inBrSec" min="0" max="60" value="00">sec.
+                            </div>
+                        </div>
+                           
+                    </div>
+                        <div class="mainHolder2">
+                            <div class="bg1"></div>
+                            <div class="bg2 grad3"></div>
+                                <div class="bg3 startInt ">
+                                    <div class="startIntColor">
+                                    <span class="timerMin IntTimerMin">00</span>:<span class="timerSec IntTimerSec">00</span>
+                                    </div>
+                                </div>
+                            
+                            <div class="bg"></div>
+                        </div>
+                    <div class="countDownBarHolder">
+                                <div class="Progress2"></div>
+                            </div>
+                    <footer>Made by ZettArt</footer>
+                </div>
+             </div>    
+        </div>
+        
+        <script async src="js/timer.js"></script>
+        <script async src="js/countDown.js"></script>
+        <script async src="js/interval.js"></script>
+        <script async src="js/functions.js"></script>
+    </body>
+</html>

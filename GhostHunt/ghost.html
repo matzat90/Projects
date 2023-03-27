@@ -1,0 +1,196 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Hit Ghost</title>
+    <meta name="description" content="puste">
+    <link rel="stylesheet" href="css.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    
+</head>
+
+<body>
+    <div class="popup">
+        <div class="popup--menu">
+            <div class="popup--menu--start button">START</div>
+            <div class="popup--menu-score button">SCORE</div>
+            <div class="popup--menu-exit button">EXIT</div>
+        </div>
+        <div class="popup--countdown">3</div>
+        <div class="popup--score">Sorry... <br> Work in progress.
+            <div class="popup--score--back button">BACK</div>
+        </div>
+        <div class="popup--finScreen">Your score: <br>
+            <span class="popup--finScreen--score">000</span>
+            <img src="pic/crown.png">
+            <div class="play--screen--retry button">Retry</div>
+            <div class="play--screen--back button">Back</div>
+        </div>
+        <div class="popup--bg"></div>
+    </div>
+    <div class="play--screen">
+        <div class="text">
+            <div class="score"><span class="uni">S: </span> <span class="score--change">00</span></div>
+            <div class="time"><span class="uni">T: </span> <span class="time--change">60</span></div>
+        </div>
+        <div class="window--holder">
+         
+
+        </div>
+
+
+
+
+        <img class="playscreen--background" src="pic/background.svg">
+    </div>
+    <script>
+    "use strict";
+        //======================== AUDIO ====================================//
+        let soundEff;
+        let music;
+
+        //======================= PLAY SCREEN ==============================//
+        //-------------------- CountDown -----------------------------//
+
+        const playScreen = document.querySelector(".play--screen")
+        const playTime = document.querySelector('.time--change');
+        const finalScreen = document.querySelector('.popup--finScreen');
+        const popUpWin = document.querySelector('.popup');
+        const text = document.querySelector('.text');
+        const textFinalScore = document.querySelector('.popup--finScreen--score');
+        const playScore = document.querySelector('.score--change');
+        let myArrGhosts = []
+        const windowHolder = document.querySelector(".window--holder")
+
+        let playCountDownTime = 59;
+        let playCountDown;
+        let playScoreNum = 0;
+        let randomGhost = 0;
+        let playMachine;
+
+
+        window.onload = () => {
+            
+            for (let i = 0; i < 9; i++) {
+                windowHolder.innerHTML += `<div class="window">
+                                            <img src="pic/Gate.png">
+                                            <div class="ghost">
+                                                <img src="pic/ghost.svg">
+                                            </div>
+                                            <div class="bg-black"></div>
+                                            </div>`
+
+                
+            }
+            
+            myArrGhosts = document.querySelectorAll(".ghost")
+            console.log(myArrGhosts)
+            
+            myArrGhosts.forEach((e) => {
+                
+                e.addEventListener("click", hitGhost)
+            })
+        }
+
+
+        //---------------------- Countdown ------------------------------------//
+
+
+        function countDownPlayTime() {
+            // ==== Foe two digits numver
+            if (playCountDownTime > 9) {
+                playTime.innerHTML = playCountDownTime;
+                playCountDownTime--;
+            }
+            // ==== Add extra "0" if number has one digit
+            else if (playCountDownTime <= 9 && playCountDownTime >= 1) {
+                playTime.innerHTML = "0" + playCountDownTime;
+                playCountDownTime--;
+            }
+            // ==== If countdown = 0 - finish game and open final screen
+            else if (playCountDownTime < 1) {
+                playScreen.style.filter = "blur(5px)"; // Add blur
+                playTime.innerHTML = "00"; // set game timer to zero
+
+                //---------------- FINAL SCREEN:
+
+                music.pause();
+                music = null;
+                music = new Audio("audio/victory.mp3")
+                music.play();
+
+                popUpWin.style.display = "flex";
+                text.style.display = "none";
+                finalScreen.style.display = "flex";
+                finalScreen.style.opacity = "1";
+
+                textFinalScore.innerText = playScoreNum;
+                countDownTimes = 2;
+
+                clearInterval(playCountDown);
+            }
+        }
+        //-------------------- Click On Ghost -----------------------------//
+
+        function hitGhost() {
+            let e = event.target.parentElement
+            if (e.getAttribute('class') == "ghost active") {
+                
+                soundEff = new Audio("audio/pop.mp3")
+                soundEff.play();
+                if (playScoreNum <= 8) {
+                    playScore.innerText = "0" + playScoreNum; // Add extra zero if number has only one digit
+                } else {
+                    playScore.innerText = playScoreNum;
+                }
+                playScoreNum++; //Add point
+                e.classList.remove('active'); // Remove active from ghost == kill ghost
+            }
+        }
+
+
+        //----------------Ghost PopUp -----------------------------------//
+
+
+        function ghostPopUp() {
+            // if countdown is less or equal to zero kill this function immidietly
+            if (playCountDownTime <= 0) {
+                return;
+            }
+
+            randomGhost = Math.floor(Math.random() * myArrGhosts.length); // Get a random number from Arr.lenght to choose ghost to pop
+            myArrGhosts[randomGhost].classList.add('active'); // Ghost will apear on screen
+            let randomTime = (Math.floor(Math.random() * 10) * 100) + 500; // local variable which determine how long ghost will be visible on screen.
+            if (playCountDownTime <= 59 && playCountDownTime >= 40) {
+                randomTime = randomTime - 75;
+
+            } else if (playCountDownTime < 40 && playCountDownTime >= 20) {
+                randomTime = randomTime - 100;
+
+            } else if (playCountDownTime < 20 && playCountDownTime >= 0) {
+                randomTime = randomTime - 125;
+
+            }
+            console.log(randomGhost, randomTime, myArrGhosts[randomGhost])
+
+            playMachine = setTimeout(ghostHide, randomTime);
+
+        }
+
+        //--------------Ghost Hide ------------------------------------//
+
+        function ghostHide() {
+            myArrGhosts[randomGhost].classList.remove('active');
+            ghostPopUp();
+        }
+    </script>
+    <script src="mainMenu.js"></script>
+
+    
+</body>
+
+</html>

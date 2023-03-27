@@ -1,0 +1,271 @@
+﻿<!DOCTYPE html>
+<head>
+    <meta charset="uft-8"/>
+	<title>Prompter</title>
+	<meta http-eauiv="X-UA-Compatible" content="IE=edge,chrome=1"/>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- RWD line -->
+	<meta name="author" content="Mateusz Zatwarnicki"/>
+    <link rel="stylesheet" href="Prompterstyle.css">
+    <!-- GOOGLE FONTS -->
+    <!--Poppins -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;1,100;1,200;1,300;1,400;1,500&display=swap" rel="stylesheet">
+    <!-- Merriweather -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:ital,wght@0,300;0,400;0,700;1,300;1,400&display=swap" rel="stylesheet">
+    <!-- Comfortaa -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comfortaa:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FONT AWSOME -->
+    <script src="https://kit.fontawesome.com/2ec7d8c242.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div id="semi_bod">
+
+<!-- Options menu ----------------------------------------------------------------------->
+
+<div id="opt_con">
+    <div id="title">SETUP MENU</div>
+    
+    <div id="speed">
+    <h1>Speed</h1>
+    <div class="input">
+    <input type="range" min="1" max="330" value="50" class="slider" id="barSpeed" onclick="mySpeed()" ontouchend="mySpeed()">
+    </div>
+    </div>
+    
+    
+    <div id="bg_color">
+    <h1>Background Color</h1>
+    <div class="input">
+    <input type="range" min="1" max="5" value="1" class="slider" id="barColor" onclick="myBgColor()" ontouchend="myBgColor()">
+    </div>
+    </div>
+    
+    
+    <div id="font_size">
+    <h1>Font Size</h1>
+    <div class="input">
+    <input type="range" min="5" max="35" value="25" class="slider" id="barFont" onclick="mySize()" ontouchend="mySize()">
+    </div>
+    </div>
+    
+    <div id="font_family">
+    <h1>Font Family</h1>
+    <div id="family-con">
+        <div id="fam1" class="fam" onclick="myFontFamily1()" ontouchedn="myFontFamily1()">Poppins</div>    
+        <div id="fam2" class="fam" onclick="myFontFamily2()" ontouchedn="myFontFamily2()">Merriweather</div>
+        <div id="fam3" class="fam" onclick="myFontFamily3()" ontouchedn="myFontFamily3()">Comfortaa</div>
+        
+        </div>
+    </div>
+    
+    <div style="height: 15px"></div>
+    
+    
+</div>     
+    
+<!-- Add menu -------------------------------------------------------------------------->
+
+<div id="add_con">
+    <div id="title">Add Text</div>
+    <div id="for_box">
+        <textarea id="textarea" type="text" placeholder="Paste your text here."></textarea>
+        
+    </div>
+    <div id="aplly" onclick="myTextAdd()" ontouchend="myTextAdd()" >Aplly</div>
+
+</div>
+<!--- Content -------------------------------------------------------------------------->
+<div id="navBar">
+    <div id="options_button" class="button" onclick="myOptions()" ><i class="fas fa-cog"></i></div>
+    <div id="start_stop" class="button" onclick="myScroll()">START</div>
+    <div id="add" class="button" onclick="myAdd()">+</div>
+
+</div>
+    
+</div>
+    
+<div id="content">
+
+<div id="text">
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec lobortis lobortis lacinia. Fusce dapibus nunc vel turpis pharetra, sed consequat tellus sodales. Nulla eget risus lobortis, interdum eros vel, scelerisque elit. Donec lobortis mi eget aliquam venenatis. Donec sit amet lectus ex. Etiam aliquet fermentum risus eget lacinia. Morbi laoreet lacus dolor, vitae molestie diam tristique vitae.
+
+Praesent finibus vehicula nunc, id laoreet urna egestas eget. Donec condimentum eu enim vel sodales. Aliquam varius accumsan nisi, id sagittis sem imperdiet eget. Ut est mi, mattis vel rhoncus eget, mattis a nisi. Curabitur vel molestie magna. Aliquam at orci quis nibh faucibus dignissim. Curabitur condimentum vitae risus at auctor. Etiam egestas velit sed pharetra fringilla. Suspendisse laoreet lectus at massa vestibulum, vel mollis ligula mattis. Nunc hendrerit ut odio vitae convallis. Curabitur ut ante id justo tincidunt ornare vehicula non eros. Donec tristique rhoncus ipsum, nec feugiat justo tincidunt sed. Sed posuere elementum pulvinar. Curabitur ut gravida magna.
+
+Proin suscipit, leo ac elementum congue, libero nisi semper neque, non interdum dolor ligula at nisl. Sed ut odio ut ligula auctor posuere. Suspendisse et leo porta, porttitor risus ut, luctus augue. Morbi maximus est vitae euismod euismod. Quisque id elit vel urna porta efficitur. Donec rutrum tortor libero, imperdiet interdum sem varius at. Donec commodo sed felis et viverra. Fusce venenatis tortor id leo pretium bibendum. Nulla bibendum lectus pharetra nisi pulvinar, sit amet tincidunt lectus eleifend. Nunc neque sem, accumsan id pulvinar sit amet, consectetur non quam. Sed pharetra ipsum sed dolor dictum, vitae placerat velit sodales. Morbi metus ante, imperdiet nec imperdiet a, aliquet sit amet ante.
+
+Cras accumsan commodo urna sed fringilla. Aliquam a sapien vel urna sagittis rhoncus ac eu neque. Etiam eget sodales tortor. Aliquam ullamcorper interdum mi, nec lacinia purus pulvinar sit amet. Mauris porttitor tincidunt lobortis. Maecenas euismod, felis at aliquet venenatis, tortor metus luctus ligula, nec hendrerit velit sapien sed ex. Vivamus porta nec lorem non dictum. Fusce mi nibh, posuere vitae pharetra suscipit, rutrum sed nunc. Ut semper enim magna, vel pellentesque nibh feugiat eget.
+
+Nulla non cursus nunc. Phasellus purus nibh, ultrices aliquet eros non, sagittis tempor diam. Fusce non leo massa. Fusce sed est facilisis, fermentum diam ornare, pretium tortor. Ut placerat lectus ante, at mattis sapien hendrerit sed. Maecenas rhoncus eu elit quis commodo. Vivamus et lacus ultrices, pellentesque nisl aliquam, pretium leo. Quisque mollis nulla quam, a luctus tortor cursus in. Aliquam odio dui, auctor ut hendrerit in, mollis vitae eros. Nulla aliquam mattis justo, in feugiat dui viverra eget. In elementum vitae diam eget rhoncus.
+
+Suspendisse dapibus enim vel pellentesque imperdiet. Fusce auctor ligula vitae urna pulvinar, sed dictum tortor faucibus. Sed dignissim viverra nunc, scelerisque ullamcorper ante consequat sit amet. Nullam nec porta eros. Integer et nisl risus. Phasellus at commodo urna. In vehicula ligula nec tincidunt vulputate.
+
+Vivamus non augue at nisi accumsan dictum vitae non purus. Proin metus est, volutpat in enim et, pharetra luctus urna. Donec auctor, lorem eu fermentum laoreet, enim lectus egestas dolor, a eleifend tellus est vitae erat. Fusce id neque leo. Cras lobortis, odio sed semper imperdiet, felis tellus sollicitudin urna, ac commodo lorem nibh ac est. Phasellus consectetur at velit non convallis. Curabitur posuere, sapien ac imperdiet venenatis, purus metus elementum elit, quis eleifend libero enim vel justo. Aenean tincidunt fermentum libero ut elementum. Nam nec bibendum orci. Aliquam sed arcu id ligula pharetra porta id non mauris. Proin ac tellus massa.
+
+Curabitur placerat metus mi, vel convallis magna congue eget. Mauris id orci in risus convallis luctus sit amet in dolor. Etiam ut aliquam lectus. Ut mi nisl, lacinia sed pretium id, dignissim quis augue. Vestibulum efficitur, nulla eu tempor imperdiet, odio leo viverra erat, elementum porta dui dui nec ipsum. Nulla bibendum diam ipsum, quis sagittis arcu aliquam sit amet. Nulla sed odio a ipsum rhoncus consectetur.
+
+Proin viverra, felis sed porta luctus, turpis sapien sagittis tellus, non sodales elit tellus at elit. Etiam euismod blandit lorem, nec pulvinar risus molestie eget. Maecenas eget dignissim turpis, at tempor nulla. Nam posuere ligula id blandit vulputate. Vestibulum vehicula mattis quam, in egestas diam congue at. Cras sit amet commodo velit. In hac habitasse platea dictumst. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. In sit amet risus quis dolor finibus elementum in nec neque. Morbi sit amet urna malesuada, fringilla nisi ut, egestas nulla. Sed malesuada purus vitae elit efficitur, sed rhoncus augue ultrices. Integer at tristique turpis. Donec vel felis aliquet tellus placerat dignissim.
+
+Pellentesque consequat massa at eros varius, eu viverra quam venenatis. Duis varius, risus eu congue cursus, nisi nibh euismod leo, vitae finibus felis neque non nibh. Cras id porttitor ipsum. Nulla dictum porta enim, et facilisis arcu efficitur sit amet. Suspendisse pretium consequat ligula vitae commodo. Cras ultrices molestie libero, vel porttitor ex. Vivamus felis sem, dictum a dictum aliquam, aliquet semper sapien. Quisque ut eleifend orci. Nulla facilisi. Fusce mattis mi in tincidunt semper. Donec id nisi at ante dictum pretium. Suspendisse sed tellus mi. Donec rutrum fringilla purus vitae rutrum.
+    
+</div>
+
+</div>
+    
+   
+
+<script>
+    // Button Add
+    
+    document.getElementById("add_con").style.display = "none";
+    function myAdd(){
+        switch (document.getElementById("add_con").style.display){
+            case "inline-block":
+                document.getElementById("add_con").style.display = "none";
+                break;
+            case "none":
+                document.getElementById("add_con").style.display = "inline-block";
+                clearInterval(sliderInterval);
+                break;
+                
+
+        }
+        
+    }
+    
+    // Button Aplly
+    
+    function myTextAdd(){
+        let text = document.getElementById("textarea").value;
+        document.getElementById("text").innerHTML = text;
+        
+    }
+    
+    // Button Options
+
+    document.getElementById("opt_con").style.display = "none";
+    function myOptions(){
+        switch (document.getElementById("opt_con").style.display){
+            case "block":
+                document.getElementById("opt_con").style.display = "none";
+                break;
+            case "none":
+                document.getElementById("opt_con").style.display = "block";
+                document.getElementById("start_stop").innerHTML = "START";
+                clearInterval(sliderInterval);
+                break;
+                
+
+        }
+        
+    }
+    
+    //FontSize
+     function mySize(){
+        let value1 = document.getElementById("barFont").value;
+        let dupa = value1.toString() + "px";
+        document.getElementById("text").style.fontSize = dupa;
+    }
+    
+    //BGColor
+  
+    function myBgColor(){
+        let input = document.getElementById("barColor").value;
+        switch (input){
+            case "1":
+            document.body.style.backgroundColor = "#FFFFFF";
+
+                break;
+            case "2":
+             document.body.style.backgroundColor  = "#E6E6E6";
+           
+                break;
+            case "3":
+             document.body.style.backgroundColor  = "#CCCCCC";
+           
+                break;
+             case "4":
+             document.body.style.backgroundColor  = "#B3B3B3";
+            
+                break;
+            case "5":
+             document.body.style.backgroundColor  = "#999999";
+            
+                break;
+        }
+    }
+   
+    //FontFamily
+    
+    function myFontFamily1(){
+        document.getElementById("fam1").style.backgroundColor = "#0D65E0";
+        document.getElementById("fam1").style.border = "1px solid #0D65E0";
+        document.getElementById("text").style.fontFamily = "Poppins";
+        document.getElementById("fam2").style.backgroundColor = "#383838";
+        document.getElementById("fam2").style.border = "1px solid #262626";
+        document.getElementById("fam3").style.backgroundColor = "#383838";
+        document.getElementById("fam3").style.border = "1px solid #262626";
+    }
+     function myFontFamily2(){
+        document.getElementById("fam1").style.backgroundColor = "#383838";
+        document.getElementById("fam1").style.border = "1px solid #262626";
+        document.getElementById("text").style.fontFamily = "Merriweather";
+        document.getElementById("fam2").style.backgroundColor = "#0D65E0";
+        document.getElementById("fam2").style.border = "1px solid #0D65E0";
+        document.getElementById("fam3").style.backgroundColor = "#383838";
+        document.getElementById("fam3").style.border = "1px solid #262626";
+    }
+    
+    function myFontFamily3(){
+        document.getElementById("fam1").style.backgroundColor = "#383838";
+        document.getElementById("fam1").style.border = "1px solid #262626";
+        document.getElementById("text").style.fontFamily = "Comfortaa";
+        document.getElementById("fam2").style.backgroundColor = "#383838";
+        document.getElementById("fam2").style.border = "1px solid #262626";
+        document.getElementById("fam3").style.backgroundColor = "#0D65E0";
+        document.getElementById("fam3").style.border = "1px solid #0D65E0";
+    }
+    
+    
+    //ScrollTo
+   let tempo = [1];
+    let speed = [350];
+    
+    function mySpeed(){
+        tempo[0] = document.getElementById("barSpeed").value;
+        speed[0] = 350 - tempo[0];
+    }
+    
+    function myScroll(){
+   let status = document.getElementById("start_stop").innerHTML;
+    
+    switch(status){
+        case "START":
+    document.getElementById("start_stop").innerHTML = "STOP";
+    sliderInterval = window.setInterval(scrollingBy, speed[0]);
+        document.getElementById("opt_con").style.display = "none";
+            
+        break;
+        case "STOP":
+        document.getElementById("start_stop").innerHTML = "START";
+        clearInterval(sliderInterval);
+        
+        break;
+    }
+    
+   
+    }
+    
+     function scrollingBy(){
+        window.scrollBy(0,1);
+         
+    }
+	
+	
+</script>    
+    
+</body>

@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="badStyle.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+     <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@200;300;400;500;600;700&display=swap" rel="stylesheet">
+    
+</head>
+<body>
+   <div class="popUp">
+       If you see this flip your phone, please.
+       <div class="popUp-ani">
+           <img src="pic/ph.png">
+       </div>
+   </div>
+   
+   
+  
+   
+   
+   <div class="main">
+       <nav>
+       <div class="button left">&lt;</div>
+       <div class="button right">&gt;</div>
+       
+   </nav>
+      
+       <div class="main-h " >
+           <div class="main-h-card M1" status="flipped">
+               <div class="main-h-cardD">
+                   <img class="A" src="pic/cover/2.png">
+               </div>
+               <div class="main-h-cardD">
+                  <img class="B" src="pic/cover/1.png">
+                   
+               </div>
+           </div>
+            <div class="main-h-card M2" status="none">
+               <div class="main-h-cardD">
+                   <img class="A" src="pic/cover/4.png">
+               </div>
+               <div class="main-h-cardD">
+                  <img class="B" src="pic/cover/3.png">
+                   
+               </div>
+           </div>
+            <div class="main-h-card M3" status="none">
+               <div class="main-h-cardD">
+                   <img class="A" src="pic/cover/6.png">
+               </div>
+               <div class="main-h-cardD">
+                  <img class="B" src="pic/cover/5.png">
+                   
+               </div>
+           </div>
+           
+           <div class="main-h-card M4" status="none">
+               <div class="main-h-cardD">
+                   <img class="A" src="pic/cover/8.png">
+               </div>
+               <div class="main-h-cardD">
+                  <img class="B" src="pic/cover/7.png">
+                   
+               </div>
+           </div>
+       </div>
+       
+      
+       
+       
+      
+   </div>
+     
+   <div class="bg">
+       <div class="bg-holder">
+           <img src="pic/bg.png">
+       </div>
+   </div>
+    
+    <script async>
+    const mainH = document.querySelectorAll(".main-h-card");
+    const right = document.querySelector('.right');
+    const left = document.querySelector('.left');
+        
+    let inter;
+    
+    //*-window.onload= function() {
+    //    for(x=0; x<mainH.length; x++){
+    //        mainH[x].style.width = "50%";
+    //        mainH[x].style.left = "25%";
+    //        
+    //    }
+   // } 
+    
+    right.addEventListener('click', function(){
+        FlipPage(1);
+    });
+    left.addEventListener('click', function(){
+        FlipPage(-1);
+    });
+        
+    function FlipPage(i){
+        if (mainH[0].getAttribute("status") == "flipped" && i==1 ){
+            mainH[0].style.left = "50%";
+            mainH[0].style.transform = "rotateY(-180deg)";
+            //document.querySelector(".M1").style.zIndex = "0";
+            mainH[0].setAttribute('status', 'none');
+            mainH[1].setAttribute('status', 'flipped');
+            mainH[1].style.zIndex = "3";
+            inter = setTimeout (function(){
+                mainH[0].style.zIndex = "0";
+            },1000)
+                for(x=1; x<mainH.length; x++){
+                mainH[x].style.left = "50%";
+
+            }
+            
+            return;
+        }
+        
+        for(x=0; x<mainH.length; x++){
+            var holded = mainH[x].getAttribute("status");
+            
+            if (holded == "flipped" && i==1 && mainH[x].nextElementSibling != null){
+                
+                mainH[x].style.transform = "rotateY(-180deg)";
+                mainH[x].setAttribute("status", "none");
+                mainH[x].nextElementSibling.setAttribute("status", "flipped");
+                mainH[x].nextElementSibling.style.zIndex = "3";
+                inter = setTimeout (function(){
+                    mainH[x].style.zIndex = "0";
+                    
+                    
+                    
+                },1000)
+                
+                
+                return
+                
+            }
+            
+            if (mainH[mainH.length-1].getAttribute("status") == "flipped" && i==1 && mainH[mainH.length-1].nextElementSibling == null){
+                lastMid();
+            }
+             if (holded == "flipped" && i==-1 && mainH[x].previousElementSibling != null){
+                
+                if (mainH[0].style.left == "75%"){
+                    
+                    for(x=0; x<mainH.length; x++){
+                        
+                            mainH[x].style.left = "50%";
+                     }
+                    mainH[mainH.length-1].style.transform = "rotateY(0deg)";
+                mainH[x].previousElementSibling.style.zIndex = "3";
+                 mainH[x].style.zIndex = "0";
+                mainH[x].setAttribute("status", "none");
+                //mainH[x].nextElementSibling.style.zIndex = "0";
+                mainH[x].previousElementSibling.setAttribute("status", "flipped");
+                inter = setTimeout (function(){
+                    mainH[x].style.zIndex = "0";
+                    
+                    
+                },1000)
+                return
+                } 
+                 
+                 
+                mainH[x].previousElementSibling.style.transform = "rotateY(0deg)";
+                mainH[x].previousElementSibling.style.zIndex = "3";
+                 mainH[x].style.zIndex = "0";
+                mainH[x].setAttribute("status", "none");
+                //mainH[x].nextElementSibling.style.zIndex = "0";
+                mainH[x].previousElementSibling.setAttribute("status", "flipped");
+                 frontMid()
+                inter = setTimeout (function(){
+                    mainH[x].style.zIndex = "0";
+                    
+                    
+                },1000)
+                return
+                
+            }
+            
+        }
+    }
+    
+    function lastMid() {
+        if (mainH[mainH.length-1].getAttribute("status") == "flipped" && mainH[mainH.length-1].nextElementSibling == null ){
+                     mainH[mainH.length-1].style.transform = "rotateY(-180deg)";
+                    for(x=0; x<mainH.length; x++){
+                        
+                            mainH[x].style.left = "75%";
+                     }
+                
+            }
+        return;
+    }
+        
+    function frontMid(){
+        if (mainH[0].getAttribute("status") == "flipped" && mainH[0].previousElementSibling == null ){
+                    
+                    for(x=0; x<mainH.length; x++){
+                        
+                            mainH[x].style.left = "25%";
+                     }
+                
+            }
+        return;
+    }
+    
+    
+    </script>
+    
+</body>
+</html>

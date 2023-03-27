@@ -1,0 +1,675 @@
+.* {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    user-select: none;
+}
+
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0px;
+    padding: 0px;
+    font-family: var(--font-primary)
+    
+}
+
+:root {
+    --font-primary:'Montserrat', sans-serif;
+    --font-secondary:'Kelly Slab', cursive;
+    --dynamic-height: calc(100svh - 145px);
+    --color-active:#3D3D3D;
+    --color-pasive:#2A2A2A;
+}
+
+.test {
+    height: var(--dynamic-height);
+}
+
+@media only screen and (max-width: 600px) {
+    .deskHolder {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+    }
+    
+    .screen {
+        width: calc(100vw * 3);
+        height: auto;
+        position: relative;
+        left: 0px;
+        transition: all 0.8s ease-in-out;
+        display: flex;
+        justify-content: space-around;
+        
+       
+    }
+    
+    .timer{
+        width: 100vw;
+        display: inline-block;
+        user-select: none;
+        
+        
+    }
+    
+    .countdown{
+        width: 100vw;
+        display:inline-block;
+        user-select: none;
+        
+    }
+    
+    .interval{
+        width: 100vw;
+        display: inline-block;
+        user-select: none;
+    }
+    .input-left, .input-right{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        font-weight: bold;
+        color: gray;
+        padding-left: 10px;
+    }
+    
+    .int-hol{
+       margin-top: 0px;
+        font-size: 0.6rem;
+    }
+    
+    
+    .countdownBar{
+        width: 100%;
+        height: 60px;
+        background-color: var(--color-pasive);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        color: grey;
+        user-select: none;
+        
+    }
+    
+    
+    
+       
+    .inMin, .inSec, .inIntMin, .inIntSec, .inBrMin, .inBrSec  {
+        min-width: 50px;
+        max-width: 51px;
+        margin-right: 5px;
+        font-size: 1.4rem;
+        background-color: lightgray;
+        text-align: center;
+    }
+    
+    .inMin:focus, .inSec:focus, .inIntMin:focus, .inIntSec:focus, .inBrMin:focus, .inBrSec:focus {
+    outline: none;
+    }
+    .inSec{
+        margin-left: 10px;
+    }
+    
+    header, footer {
+        width: 100%;
+        background-color: var(--color-pasive);
+        height: 40px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1.5rem;
+        user-select: none;
+        
+    }
+    
+    header {
+        border-bottom: 2px solid #333333;
+        user-select: none;
+    }
+    
+    .timerReset {
+        width: 100%;
+        height: 60px;
+        background-color: var(--color-pasive);
+        color:grey;
+        text-align: center;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s linear;
+    }
+    
+    .mainHolder, .mainHolder2{
+        width: 100%;
+        
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    
+    .mainHolder{
+        height: calc(100svh - 140px);
+    }
+    .mainHolder2{
+        height: calc(100svh - 145px)
+    }
+    
+    .bg1, .bg2, .bg3 {
+        aspect-ratio: 1/1;
+        width: 90%;
+        border-radius: 50%;
+        background-color: var(--color-pasive);
+        position: absolute;
+        z-index: 1;
+                
+    }
+    
+    .bg2 {
+        width: 85%;
+        
+        
+    }
+    
+    .timerBG{
+        animation-name: none;
+        animation-duration: 0.5s;
+        animation-iteration-count: forwards;
+        animation-timing-function: linear;
+    }
+    
+    .grad1 {
+         background: rgb(0,230,255);
+        background: linear-gradient(0deg, rgba(0,230,255,1) 2%, rgba(0,136,255,1) 100%);
+         z-index: 2;
+        animation-name: none;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    .grad2 {
+        background: rgb(255,234,0);
+        background: linear-gradient(0deg, rgba(255,234,0,1) 2%, rgba(255,102,0,1) 98%);
+        animation-name: none;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    .grad3 {
+       background: rgb(0,255,0);
+        background: linear-gradient(0deg, rgba(0,255,0,1) 2%, rgba(0,161,81,1) 98%);
+        animation-name: none;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes Pulse {
+        0% {
+            opacity: 100%;
+        }
+        50% {
+            opacity: 10%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+    
+    
+    .bg3{
+        width: 83%;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 5rem;
+        
+    }
+    
+    .startInt{
+        animation-name: none;
+        animation-duration: 0.5s;
+        animation-iteration-count: forwards;
+        animation-timing-function: linear;
+    }
+    
+    .startIntColor{
+        animation-name: none;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes Count{
+        0% {
+            color: red;
+        }
+        
+        
+        100% {
+            color: white;
+        }
+    }
+    
+    .countdownPress{
+        animation-name: none;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes Click {
+        0% {
+            background-color: var(--color-active);
+        }
+        100%{
+            background-color: var(--color-pasive);
+        }
+    }
+    
+    .countDownBarHolder{
+        
+        position: relative;
+        width: 300px;
+        margin: auto;
+        height: 5px;
+        background-color: transparent;
+        z-index: 1;
+        bottom: 60px;
+        
+    }
+    
+    .Progress, .Progress2{
+        display:none;
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+    
+    .Progress{
+        background: rgb(255,234,0);
+        background: linear-gradient(90deg, rgba(255,234,0,1) 2%, rgba(255,102,0,1) 98%);
+    }
+    
+    .Progress2{
+        background: rgb(0,255,0);
+        background: linear-gradient(90deg, rgba(0,255,0,1) 2%, rgba(0,161,81,1) 98%);
+        animation-name: Bar;
+        animation-duration: 1s;
+        animation-iteration-count: forwards;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes Bar{
+        0% {
+            width: 100%;
+        }
+        
+        100% {
+            width: 0%;
+        }
+    }
+    
+    .bg {
+        background-color: black;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.8;
+    }
+    
+    footer {
+        height: 40px;
+        width: 100%;
+        font-size: 0.8rem;
+        color: grey;
+    }
+    
+    
+}
+
+/*==================== DESKTOP ==================*/
+
+body {
+    background: rgb(0,151,255);
+background: radial-gradient(circle, rgba(0,151,255,1) 2%, rgba(0,0,0,1) 70%);
+}
+
+@media only screen and (min-width: 601px) {
+    
+    
+    
+    .deskHolder {
+        width: 100vw;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+    }
+    
+    .screen {
+        width: 80%;
+        height: auto;
+        position: relative;
+        left: 0px;
+        transition: all 0.8s ease-in-out;
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
+        top: 50%;
+        transform: translateY(-50%);
+        
+       
+    }
+    
+    .timer{
+        width: 30%;
+        display: inline-block;
+        
+        
+    }
+    
+    .countdown{
+        width: 30%;
+        display:inline-block;
+        
+    }
+    
+    .interval{
+        width: 30%;
+        display: inline-block;
+    }
+    .input-left, .input-right{
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        font-size: 1rem;
+        font-weight: bold;
+        color: gray;
+        padding-left: 10px;
+    }
+    
+    .int-hol{
+       margin-top: 0px;
+        font-size: 0.6rem;
+    }
+    
+    
+    .countdownBar{
+        width: 100%;
+        height: 60px;
+        background-color: var(--color-pasive);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-size: 1.3rem;
+        color: grey;
+        
+    }
+    
+    
+    
+       
+    .inMin, .inSec, .inIntMin, .inIntSec, .inBrMin, .inBrSec  {
+        min-width: 50px;
+        max-width: 51px;
+        margin-right: 5px;
+        font-size: 1.4rem;
+        background-color: lightgray;
+        text-align: center;
+    }
+    
+    .inMin:focus, .inSec:focus, .inIntMin:focus, .inIntSec:focus, .inBrMin:focus, .inBrSec:focus {
+    outline: none;
+    }
+    .inSec{
+        margin-left: 10px;
+    }
+    
+    header, footer {
+        width: 100%;
+        background-color: var(--color-pasive);
+        height: 40px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 1.5rem;
+        
+    }
+    
+    header {
+        border-bottom: 2px solid #333333;
+    }
+    
+    .timerReset {
+        width: 100%;
+        height: 60px;
+        background-color: var(--color-pasive);
+        color:grey;
+        text-align: center;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s linear;
+    }
+    
+    .mainHolder, .mainHolder2{
+        width: 100%;
+        
+        background-color: transparent;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+    }
+    
+    .mainHolder{
+        height: calc(100vh - 140px);
+    }
+    .mainHolder2{
+        height: calc(100vh - 145px)
+    }
+    
+    .bg1, .bg2, .bg3 {
+        aspect-ratio: 1/1;
+        width: 90%;
+        border-radius: 50%;
+        background-color: var(--color-pasive);
+        position: absolute;
+        z-index: 1;
+                
+    }
+    
+    .bg2 {
+        width: 85%;
+        
+        
+    }
+    
+    .timerBG{
+        animation-name: none;
+        animation-duration: 0.5s;
+        animation-iteration-count: forwards;
+        animation-timing-function: linear;
+    }
+    
+    .grad1 {
+         background: rgb(0,230,255);
+        background: linear-gradient(0deg, rgba(0,230,255,1) 2%, rgba(0,136,255,1) 100%);
+         z-index: 2;
+        animation-name: none;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    .grad2 {
+        background: rgb(255,234,0);
+        background: linear-gradient(0deg, rgba(255,234,0,1) 2%, rgba(255,102,0,1) 98%);
+        animation-name: none;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    .grad3 {
+       background: rgb(0,255,0);
+        background: linear-gradient(0deg, rgba(0,255,0,1) 2%, rgba(0,161,81,1) 98%);
+        animation-name: none;
+        animation-duration: 2s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes Pulse {
+        0% {
+            opacity: 100%;
+        }
+        50% {
+            opacity: 10%;
+        }
+        100% {
+            opacity: 100%;
+        }
+    }
+    
+    
+    .bg3{
+        width: 83%;
+        z-index: 3;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        font-size: 4rem;
+        user-select: none;
+        
+    }
+    
+    .startInt{
+        animation-name: none;
+        animation-duration: 0.5s;
+        animation-iteration-count: forwards;
+        animation-timing-function: linear;
+    }
+    
+    .startIntColor{
+        animation-name: none;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes Count{
+        0% {
+            color: red;
+        }
+        
+        
+        100% {
+            color: white;
+        }
+    }
+    
+    .countdownPress{
+        animation-name: none;
+        animation-duration: 1s;
+        animation-iteration-count: infinite;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes Click {
+        0% {
+            background-color: var(--color-active);
+        }
+        100%{
+            background-color: var(--color-pasive);
+        }
+    }
+    
+    .countDownBarHolder{
+        
+        position: relative;
+        width: 300px;
+        margin: auto;
+        height: 5px;
+        background-color: transparent;
+        z-index: 1;
+        bottom: 60px;
+        
+    }
+    
+    .Progress, .Progress2{
+        display:none;
+        width: 100%;
+        height: 100%;
+        float: left;
+    }
+    
+    .Progress{
+        background: rgb(255,234,0);
+        background: linear-gradient(90deg, rgba(255,234,0,1) 2%, rgba(255,102,0,1) 98%);
+    }
+    
+    .Progress2{
+        background: rgb(0,255,0);
+        background: linear-gradient(90deg, rgba(0,255,0,1) 2%, rgba(0,161,81,1) 98%);
+        animation-name: Bar;
+        animation-duration: 1s;
+        animation-iteration-count: forwards;
+        animation-timing-function: linear;
+    }
+    
+    @keyframes Bar{
+        0% {
+            width: 100%;
+        }
+        
+        100% {
+            width: 0%;
+        }
+    }
+    
+    .bg {
+        background-color: black;
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 0;
+        opacity: 0.6;
+        
+        -webkit-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 1);
+-moz-box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 1);
+box-shadow: 0px 0px 13px -1px rgba(0, 0, 0, 1);
+        
+    }
+    
+    footer {
+        height: 45px;
+        width: 100%;
+        font-size: 0.8rem;
+        color: grey;
+        position: relative;
+        bottom: 5px;
+    }
+    
+    
+}
+
